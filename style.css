@@ -89,7 +89,8 @@ body{
     box-shadow: 0 0 6px rgba(0,0,0,0.15);
     transition: transform 0.2s ease;
 }
-.settings:hover .menu {
+
+.settings.show .menu {
     transform: scale(1);
 }
 .settings .menu li {
@@ -120,18 +121,18 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 2;
+    z-index: 3;
     max-width: 400px;
     width: 100%;
     justify-content: center;
     transform: translate(-50%, -50%);
 }
-.popup-box, .popup-box .popup {
+.popup-box, .popup {
     opacity: 0;
     pointer-events: none;
     transition: all 0.25s ease;
 }
-.popup-box.show, .popup-box .popup {
+.popup-box.show, .popup-box.show .popup {
     opacity: 1;
     pointer-events: auto;
 }
