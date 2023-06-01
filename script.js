@@ -20,7 +20,7 @@ addBox.addEventListener("click", () => {
 })
 
 closeIcon.addEventListener("click", () => {
-    isUpdate = true;
+    isUpdate = false;
     titleTag.value  = "";
     descTag.value = "";
     addBtn.innerText = "Add Note";
@@ -64,6 +64,8 @@ function showMenu(elem) {
 }
 
 function deleteNote(noteId) {
+    let confirmDel = confirm("Are you sure you want to delete this note?");
+    if(!confirmDel) return;
     notes.splice(noteId, 1); //remve selected note from array
     //save updated notes to localstorage
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -78,7 +80,6 @@ function updateNote(noteId, title, desc) {
     popupTitle.innerText = "Update a Note"
     titleTag.value  = title;
     descTag.value = desc;
-    console.log(noteId, title, desc);
 }
  
 addBtn.addEventListener("click", e => {
